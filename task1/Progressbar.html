@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Bars</title>
+ <link rel="stylesheet" href="Progressbar.css">
+</head>
+<body>
+
+  <button id="addBtn">Add</button>
+  <div id="progressContainer"></div>
+
+  <script>
+    const addBtn = document.getElementById('addBtn');
+    const container = document.getElementById('progressContainer');
+
+    addBtn.addEventListener('click', () => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'progress-container';
+
+      const bar = document.createElement('div');
+      bar.className = 'progress-bar';
+
+      wrapper.appendChild(bar);
+      container.appendChild(wrapper);
+
+      let progress = 0;
+      const interval = 20; 
+      const totalDuration = 2000; 
+      const step = 100 / (totalDuration / interval);
+
+      const timer = setInterval(() => {
+        progress += step;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(timer);
+        }
+        bar.style.width = progress + '%';
+      }, interval);
+    });
+  </script>
+
+</body>
+</html>
