@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Search with Sort</title>
+  <style>
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 10px;
+      width: 250px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    #productList {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>Product Search</h2>
+
+  <input id="inp" type="text" placeholder="Search products" />
+  <button id="btn">Search</button>
+
+  <select id="sort" style="margin-left: 10px;">
+    <option value="">Sort by</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="name-asc">Name: A to Z</option>
+    <option value="name-desc">Name: Z to A</option>
+  </select>
+
+  <div id="productList"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
