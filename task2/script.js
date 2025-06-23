@@ -10,7 +10,7 @@ fetch("https://dummyjson.com/products")
   .then((res) => res.json())
   .then((data) => {
     products = data.products;
-    filteredProducts = [...products]; // Copy original
+    filteredProducts = [...products];
     displayProducts(filteredProducts);
   })
   .catch((err) => {

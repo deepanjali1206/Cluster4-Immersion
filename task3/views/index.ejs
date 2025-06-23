@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Add a New Vehicle</h1>
+    <form action="/vehicles" method="POST">
+        <input type="text" name="vehicle_name" placeholder="Vehicle Name" required>
+        <input type="number" name="price" placeholder="Price" required>
+        <input type="text" name="brand" placeholder="Brand" required>
+        <input type="text" name="image" placeholder="Image URL">
+        <textarea name="desc" placeholder="Description"></textarea>
+        <button type="submit">Add Vehicle</button>
+    </form>
+
+    <hr>
+
+    <h1>Existing Vehicles</h1>
+    <ul class="vehicle-list">
+        <% vehicles.forEach(function(vehicle) { %>
+            <li class="vehicle-item">
+                <strong><%= vehicle.brand %> <%= vehicle.vehicle_name %></strong> - $<%= vehicle.price %>
+                <p><%= vehicle.desc %></p>
+                <% if (vehicle.image) { %>
+                    <img src="<%= vehicle.image %>" alt="<%= vehicle.vehicle_name %>">
+                <% } %>
+                
+                <div class="actions">
+                 
+                    <a href="/vehicles/<%= vehicle._id %>/edit">Edit</a>
+
+                 
+                    <form action="/vehicles/<%= vehicle._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html> 
