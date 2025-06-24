@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Vehicle</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Edit Vehicle</h1>
+    <form action="/vehicles/<%= vehicle._id %>?_method=PUT" method="POST">
+        <input type="text" name="vehicle_name" value="<%= vehicle.vehicle_name %>" required>
+        <input type="number" name="price" value="<%= vehicle.price %>" required>
+        <input type="text" name="brand" value="<%= vehicle.brand %>" required>
+        <input type="text" name="image" value="<%= vehicle.image %>">
+        <textarea name="desc"><%= vehicle.desc %></textarea>
+        <button type="submit">Update Vehicle</button>
+    </form>
+    <a href="/vehicles">Cancel</a>
+</body>
+</html> 
